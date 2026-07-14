@@ -1,47 +1,135 @@
 /*====================================================
-JUEGOS DEPORTIVOS 2026
-STYLE.CSS
+RESET
 ====================================================*/
 
-
-*{
-
+*,
+*::before,
+*::after{
     margin:0;
     padding:0;
     box-sizing:border-box;
+}
+
+/*====================================================
+VARIABLES
+====================================================*/
+
+:root{
+
+    --color-primary:#00AEEF;
+    --color-secondary:#00EAFF;
+    --color-white:#FFFFFF;
+    --color-black:#000000;
+
+    --font-title:'Bebas Neue',sans-serif;
+    --font-text:'Montserrat',sans-serif;
 
 }
 
+/*====================================================
+HTML
+====================================================*/
 
-html,
-body{
+html{
 
     width:100%;
     height:100%;
+    font-size:16px;
+    -webkit-text-size-adjust:100%;
+    scroll-behavior:smooth;
 
 }
 
+/*====================================================
+BODY
+====================================================*/
 
 body{
 
+    width:100%;
+    min-height:100dvh;
+
     overflow:hidden;
 
-    font-family:'Montserrat',sans-serif;
+    position:relative;
 
-    background:#000;
+    background:var(--color-black);
 
-    color:white;
+    color:var(--color-white);
+
+    font-family:var(--font-text);
+
+    text-rendering:optimizeLegibility;
+
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
 
 }
 
+/*====================================================
+IMÁGENES
+====================================================*/
 
+img{
 
+    display:block;
 
+    max-width:100%;
 
+    height:auto;
+
+    user-select:none;
+
+    -webkit-user-drag:none;
+
+}
+
+/*====================================================
+BOTONES
+====================================================*/
+
+button{
+
+    font-family:inherit;
+
+    border:none;
+
+    outline:none;
+
+    background:none;
+
+    cursor:pointer;
+
+    appearance:none;
+
+    -webkit-tap-highlight-color:transparent;
+
+}
+
+/*====================================================
+SECCIONES
+====================================================*/
+
+section{
+
+    width:100%;
+
+    min-height:100dvh;
+
+}
+
+/*====================================================
+ELEMENTOS OCULTOS
+====================================================*/
+
+.hidden{
+
+    display:none !important;
+
+}
 /*====================================================
 VIDEO
 ====================================================*/
-
 
 #background{
 
@@ -55,7 +143,6 @@ VIDEO
 
 }
 
-
 #stadiumVideo{
 
     width:100%;
@@ -64,18 +151,17 @@ VIDEO
 
     object-fit:cover;
 
+    object-position:center;
+
     animation:cameraMove 20s ease-in-out infinite alternate;
 
+    will-change:transform;
+
 }
-
-
-
-
 
 /*====================================================
 CAPAS
 ====================================================*/
-
 
 #overlay{
 
@@ -85,21 +171,16 @@ CAPAS
 
     z-index:2;
 
+    pointer-events:none;
+
     background:
-
     linear-gradient(
-
-    rgba(0,0,0,.15),
-
-    rgba(0,0,0,.45),
-
-    rgba(0,0,0,.85)
-
+        rgba(0,0,0,.12),
+        rgba(0,0,0,.42),
+        rgba(0,0,0,.82)
     );
 
 }
-
-
 
 #vignette{
 
@@ -112,20 +193,13 @@ CAPAS
     pointer-events:none;
 
     background:
-
     radial-gradient(
-
-    circle,
-
-    transparent 30%,
-
-    rgba(0,0,0,.85)
-
+        circle,
+        transparent 30%,
+        rgba(0,0,0,.82)
     );
 
 }
-
-
 
 #fog{
 
@@ -133,14 +207,13 @@ CAPAS
 
     inset:0;
 
-    z-index:5;
+    overflow:hidden;
 
     pointer-events:none;
 
-    overflow:hidden;
+    z-index:5;
 
 }
-
 
 #fog::before{
 
@@ -157,31 +230,21 @@ CAPAS
     bottom:-50%;
 
     background:
-
     radial-gradient(
-
-    circle,
-
-    rgba(255,255,255,.12),
-
-    transparent 60%
-
+        circle,
+        rgba(255,255,255,.12),
+        transparent 60%
     );
 
     filter:blur(90px);
 
-    animation:fogMove 20s infinite alternate;
+    animation:fogMove 20s ease-in-out infinite alternate;
 
 }
-
-
-
-
 
 /*====================================================
 LUCES
 ====================================================*/
-
 
 #lights{
 
@@ -193,38 +256,33 @@ LUCES
 
     pointer-events:none;
 
-}
+    overflow:hidden;
 
+}
 
 .beam{
 
     position:absolute;
 
-    width:600px;
+    width:min(38vw,600px);
 
-    height:180vh;
+    height:180dvh;
 
     opacity:.18;
 
     filter:blur(35px);
 
     background:
-
     linear-gradient(
-
-    white,
-
-    transparent
-
+        rgba(255,255,255,.95),
+        transparent
     );
 
 }
 
-
-
 .beamLeft{
 
-    left:-150px;
+    left:-10%;
 
     top:-30%;
 
@@ -234,11 +292,9 @@ LUCES
 
 }
 
-
-
 .beamRight{
 
-    right:-150px;
+    right:-10%;
 
     top:-30%;
 
@@ -248,14 +304,9 @@ LUCES
 
 }
 
-
-
-
-
 /*====================================================
-PARTICULAS
+PARTÍCULAS
 ====================================================*/
-
 
 #particles{
 
@@ -267,9 +318,9 @@ PARTICULAS
 
     pointer-events:none;
 
+    overflow:hidden;
+
 }
-
-
 
 .particle{
 
@@ -277,24 +328,18 @@ PARTICULAS
 
     border-radius:50%;
 
-    background:white;
+    background:#fff;
 
     box-shadow:
-
-    0 0 10px cyan;
+        0 0 10px cyan;
 
     animation:particleFloat linear infinite;
 
 }
 
-
-
-
-
 /*====================================================
 BALONES
 ====================================================*/
-
 
 #balls{
 
@@ -306,26 +351,26 @@ BALONES
 
     pointer-events:none;
 
-}
+    overflow:hidden;
 
+}
 
 .ball{
 
     position:absolute;
 
-    width:90px;
+    width:clamp(60px,7vw,90px);
 
     filter:drop-shadow(0 0 25px rgba(255,255,255,.5));
 
     transition:
         left 10s linear,
-        top 10s linear;
+        top 10s linear,
+        transform .35s;
 
-    will-change:left, top, transform;
+    will-change:left,top,transform;
 
 }
-
-
 
 .football{
 
@@ -333,11 +378,7 @@ BALONES
 
     bottom:12%;
 
-   
-
 }
-
-
 
 .basketball{
 
@@ -345,11 +386,7 @@ BALONES
 
     top:12%;
 
-  
-
 }
-
-
 
 .volleyball{
 
@@ -357,17 +394,34 @@ BALONES
 
     bottom:10%;
 
-
 }
 
+/*====================================================
+RESPONSIVE
+====================================================*/
 
+@media (max-width:768px){
 
+    .beam{
 
+        width:min(55vw,380px);
 
+        filter:blur(25px);
+
+        opacity:.15;
+
+    }
+
+    .ball{
+
+        width:60px;
+
+    }
+
+}
 /*====================================================
 ESCENA 1
 ====================================================*/
-
 
 #scene1{
 
@@ -377,7 +431,7 @@ ESCENA 1
 
     width:100%;
 
-    height:100vh;
+    min-height:100dvh;
 
     display:flex;
 
@@ -385,13 +439,17 @@ ESCENA 1
 
     align-items:center;
 
+    padding:40px 20px;
+
     text-align:center;
 
 }
 
-
-
 .content{
+
+    width:100%;
+
+    max-width:900px;
 
     display:flex;
 
@@ -399,29 +457,29 @@ ESCENA 1
 
     align-items:center;
 
+    justify-content:center;
+
 }
 
-
-
-
+/*====================================================
+LOGO
+====================================================*/
 
 #logo{
 
-    width:135px;
+    width:clamp(90px,10vw,135px);
 
     margin-bottom:30px;
 
     animation:
-
-    logoEnter 1.5s forwards,
-
-    logoGlow 4s infinite;
+        logoEnter 1.5s forwards,
+        logoGlow 4s infinite;
 
 }
 
-
-
-
+/*====================================================
+TITULO
+====================================================*/
 
 .title{
 
@@ -429,79 +487,75 @@ ESCENA 1
 
     flex-direction:column;
 
+    align-items:center;
+
+    gap:2px;
+
 }
-
-
 
 .title span{
 
     opacity:0;
 
-    font-family:'Bebas Neue';
-
-    letter-spacing:5px;
+    font-family:var(--font-title);
 
     line-height:.9;
 
+    letter-spacing:.08em;
+
     text-shadow:
-
-    0 0 15px #00AEEF,
-
-    0 0 40px #008cff;
+        0 0 15px #00AEEF,
+        0 0 40px #008cff;
 
 }
 
-
-
 .title span:nth-child(1){
 
-    font-size:55px;
+    font-size:clamp(2.2rem,5vw,3.5rem);
 
     animation:titleIn .8s forwards .7s;
 
 }
 
-
-
 .title span:nth-child(2){
 
-    font-size:90px;
+    font-size:clamp(3.5rem,8vw,5.6rem);
 
     animation:titleIn .8s forwards 1.3s;
 
 }
 
-
-
 .title span:nth-child(3){
 
-    font-size:50px;
+    font-size:clamp(2rem,4.5vw,3.2rem);
 
     animation:titleIn .8s forwards 2s;
 
 }
 
-
-
 .title span:nth-child(4){
 
-    font-size:82px;
+    font-size:clamp(3rem,7vw,5.2rem);
 
     animation:titleIn .8s forwards 2.7s;
 
 }
 
-
-
-
+/*====================================================
+SUBTITULO
+====================================================*/
 
 .subtitle{
 
-    margin-top:20px;
+    margin-top:24px;
 
-    font-size:20px;
+    padding:0 15px;
 
-    letter-spacing:4px;
+    font-size:clamp(1rem,2vw,1.25rem);
+
+    font-weight:600;
+
+    letter-spacing:.20em;
 
     opacity:0;
 
@@ -509,83 +563,142 @@ ESCENA 1
 
 }
 
-
-
-
-
 /*====================================================
-BOTON
+BOTONES
 ====================================================*/
-
 
 #startButton,
 #continueButton{
 
-    margin-top:50px;
-
-    width:330px;
+    width:min(330px,90vw);
 
     height:72px;
 
-    border:none;
+    margin-top:45px;
 
-    border-radius:30px;
+    border-radius:35px;
 
-    cursor:pointer;
+    font-size:1.55rem;
 
-    color:white;
+    font-weight:800;
 
-    font-size:26px;
-
-    font-weight:1000;
+    color:#fff;
 
     background:
-
-    linear-gradient(
-
-    90deg,
-
-    #0099ff,
-
-    #00eaff
-
-    );
+        linear-gradient(
+            90deg,
+            #0099ff,
+            #00eaff
+        );
 
     box-shadow:
+        0 0 35px rgba(0,234,255,.65);
 
-    0 0 35px cyan;
+    transition:
+        transform .25s,
+        box-shadow .25s;
 
 }
-
-
 
 #startButton{
 
     opacity:0;
 
     animation:
-
-    buttonIn 1s forwards 4.2s,
-
-    pulseButton 2.5s infinite 5s;
+        buttonIn 1s forwards 4.2s,
+        pulseButton 2.5s infinite 5s;
 
 }
 
+#startButton:hover,
+#continueButton:hover{
 
+    transform:translateY(-3px) scale(1.03);
 
+    box-shadow:
+        0 0 45px rgba(0,234,255,.9);
+
+}
+
+#startButton:active,
+#continueButton:active{
+
+    transform:scale(.98);
+
+}
 
 /*====================================================
-ESCENA 2
+RESPONSIVE
 ====================================================*/
 
+@media (max-width:768px){
+
+    #scene1{
+
+        padding:25px 15px;
+
+    }
+
+    .subtitle{
+
+        letter-spacing:.08em;
+
+    }
+
+    #startButton,
+    #continueButton{
+
+        height:60px;
+
+        font-size:1.2rem;
+
+        margin-top:35px;
+
+    }
+
+}
+
+@media (max-width:480px){
+
+    #logo{
+
+        margin-bottom:20px;
+
+    }
+
+    .title{
+
+        gap:0;
+
+    }
+
+    .subtitle{
+
+        margin-top:18px;
+
+        font-size:.95rem;
+
+    }
+
+    #startButton,
+    #continueButton{
+
+        width:100%;
+
+        max-width:300px;
+
+    }
+
+}
+/*====================================================
+ESCENA 2 - CUENTA REGRESIVA
+====================================================*/
 
 .hidden{
 
-    display:none!important;
+    display:none !important;
 
 }
-
-
 
 #scene2{
 
@@ -603,30 +716,48 @@ ESCENA 2
 
     background:#000;
 
+    overflow:hidden;
+
 }
 
+#countdown{
 
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    width:100%;
+
+    height:100%;
+
+}
 
 #counterNumber{
 
-    font-family:'Bebas Neue';
+    font-family:var(--font-title);
 
-    font-size:220px;
+    font-size:clamp(8rem,20vw,14rem);
+
+    font-weight:400;
+
+    color:#fff;
 
     text-shadow:
+        0 0 20px #00AEEF,
+        0 0 45px #00EAFF,
+        0 0 80px rgba(0,174,239,.7);
 
-    0 0 40px cyan;
+    user-select:none;
+
+    animation:countPulse .8s ease-in-out infinite alternate;
 
 }
 
-
-
-
-
 /*====================================================
-GO
+ESCENA GO
 ====================================================*/
-
 
 #sceneGO{
 
@@ -642,1013 +773,32 @@ GO
 
     align-items:center;
 
-    background:black;
+    background:#000;
+
+    overflow:hidden;
 
 }
-
-
 
 #goText{
 
-    font-family:'Bebas Neue';
+    font-family:var(--font-title);
 
-    font-size:250px;
+    font-size:clamp(9rem,22vw,16rem);
 
-    color:white;
+    line-height:1;
 
-    text-shadow:
-
-    0 0 30px cyan,
-
-    0 0 80px blue;
-
-    animation:goImpact 1s;
-
-}
-
-
-
-
-
-/*====================================================
-ESCENA 3
-====================================================*/
-
-
-#scene3{
-
-    position:fixed;
-
-    inset:0;
-
-    z-index:200;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
+    color:#fff;
 
     text-align:center;
 
-    background:
-
-    radial-gradient(
-
-    circle,
-
-    rgba(0,174,239,.25),
-
-    rgba(0,0,0,.95)
-
-    );
-
-}
-
-
-
-.invitation{
-
-    display:flex;
-
-    flex-direction:column;
-
-    align-items:center;
-
-    animation:sceneEnter 1.5s ease;
-
-}
-
-
-
-.scene3Logo{
-
-    width:160px;
-
-    filter:
-
-    drop-shadow(0 0 40px cyan);
-
-}
-
-
-
-#scene3 h1{
-
-    margin-top:20px;
-
-    font-family:'Bebas Neue';
-
-    font-size:80px;
-
-    letter-spacing:8px;
-
-    line-height:.9;
-
     text-shadow:
+        0 0 20px #00EAFF,
+        0 0 45px #00AEEF,
+        0 0 90px rgba(0,174,239,.8);
 
-    0 0 20px cyan;
+    user-select:none;
 
-}
-
-
-
-.line{
-
-    width:250px;
-
-    height:3px;
-
-    background:white;
-
-    margin:25px;
-
-}
-
-
-
-#scene3 p{
-
-    font-size:25px;
-
-}
-
-
-
-.message{
-
-    margin-top:25px;
-
-    max-width:700px;
-
-    color:#ddd;
-
-    font-size:18px!important;
-
-}
-
-
-
-
-
-/*====================================================
-FLASH
-====================================================*/
-
-
-#flash{
-
-    position:fixed;
-
-    inset:0;
-
-    background:white;
-
-    opacity:0;
-
-    z-index:999;
-
-    pointer-events:none;
-
-}
-
-
-
-.flashAnimation{
-
-    animation:flash .45s;
-
-}
-
-
-
-
-
-/*====================================================
-ANIMACIONES
-====================================================*/
-
-
-@keyframes cameraMove{
-
-from{
-
-transform:scale(1);
-
-}
-
-to{
-
-transform:scale(1.08);
-
-}
-
-}
-
-
-
-@keyframes fogMove{
-
-from{
-
-transform:translateX(-50px);
-
-}
-
-to{
-
-transform:translateX(50px);
-
-}
-
-}
-
-
-
-@keyframes beamLeft{
-
-to{
-
-transform:rotate(-15deg) translateX(100px);
-
-}
-
-}
-
-
-
-@keyframes beamRight{
-
-to{
-
-transform:rotate(15deg) translateX(-100px);
-
-}
-
-}
-
-
-
-@keyframes logoEnter{
-
-from{
-
-opacity:0;
-
-transform:translateY(-70px) scale(.5);
-
-}
-
-to{
-
-opacity:1;
-
-transform:none;
-
-}
-
-}
-
-
-
-@keyframes logoGlow{
-
-50%{
-
-filter:drop-shadow(0 0 50px cyan);
-
-}
-
-}
-
-
-
-@keyframes titleIn{
-
-to{
-
-opacity:1;
-
-transform:none;
-
-}
-
-}
-
-
-
-@keyframes fadeIn{
-
-to{
-
-opacity:1;
-
-}
-
-}
-
-
-
-@keyframes buttonIn{
-
-to{
-
-opacity:1;
-
-}
-
-}
-
-
-
-@keyframes pulseButton{
-
-50%{
-
-transform:scale(1.05);
-
-}
-
-}
-
-
-
-@keyframes goImpact{
-
-0%{
-
-transform:scale(5);
-
-opacity:0;
-
-}
-
-60%{
-
-transform:scale(.8);
-
-}
-
-100%{
-
-transform:scale(1);
-
-opacity:1;
-
-}
-
-}
-
-
-
-@keyframes sceneEnter{
-
-from{
-
-opacity:0;
-
-transform:scale(.5);
-
-}
-
-to{
-
-opacity:1;
-
-transform:scale(1);
-
-}
-
-}
-
-
-
-@keyframes flash{
-
-50%{
-
-opacity:1;
-
-}
-
-}
-
-
-
-
-
-@keyframes footballFloat{
-
-50%{
-
-transform:translateY(-40px) rotate(15deg);
-
-}
-
-}
-
-
-
-@keyframes basketFloat{
-
-to{
-
-transform:rotate(360deg);
-
-}
-
-}
-
-
-
-@keyframes volleyFloat{
-
-50%{
-
-transform:translateY(-40px);
-
-}
-
-}
-
-
-
-@keyframes particleFloat{
-
-to{
-
-transform:translateY(-200px);
-
-opacity:0;
-
-}
-
-}
-
-
-
-
-
-/*====================================================
-RESPONSIVE
-====================================================*/
-
-
-@media(max-width:768px){
-
-
-#logo{
-
-width:95px;
-
-}
-
-
-.title span:nth-child(2){
-
-font-size:60px;
-
-}
-
-
-.title span:nth-child(4){
-
-font-size:55px;
-
-}
-
-
-.ball{
-
-width:60px;
-
-}
-
-
-#counterNumber{
-
-font-size:140px;
-
-}
-
-
-
-#goText{
-
-font-size:150px;
-
-}
-
-
-
-#scene3 h1{
-
-font-size:50px;
-
-}
-
-
-.scene3Logo{
-
-width:110px;
-
-}
-
-
-#scene3 p{
-
-font-size:18px;
-
-}
-
-
-#startButton,
-#continueButton{
-
-width:270px;
-
-height:60px;
-
-font-size:20px;
-
-}
-
-
-}
-/*====================================================
-ESCENA 4 - MENU DE TALENTOS
-====================================================*/
-/*====================================================
-ESCENA 4
-====================================================*/
-
-#scene4{
-    position:fixed;
-    inset:0;
-    width:100%;
-    height:100vh;
-    overflow:hidden;
-    z-index:250;
-}
-
-.scene4Background{
-    position:absolute;
-    inset:0;
-    background:url("../assets/images/fondo_talentos.webp") center/contain no-repeat;
-    z-index:1;
-}
-
-/* Fondo mucho más claro */
-
-#scene4::before{
-    content:"";
-    position:absolute;
-    inset:0;
-    background:rgba(0,0,0,.08);
-    z-index:2;
-}
-
-.talentMenu{
-    position:relative;
-    width:100%;
-    height:100%;
-    z-index:5;
-}
-
-/* ocultar titulo y subtitulo */
-
-.talentMenu h1,
-.talentMenu p{
-    display:none;
-}
-
-/*====================================================
-BOTONES
-====================================================*/
-
-.talentGrid{
-    position:relative;
-    width:100%;
-    height:100%;
-}
-
-.talentCard{
-
-    position:absolute;
-
-    width:170px;
-    height:170px;
-
-    background:transparent;
-
-    border-radius:25px;
-
-    border:3px solid white;
-
-    cursor:pointer;
-
-    backdrop-filter:none;
-    -webkit-backdrop-filter:none;
-
-    transition:.35s;
-
-}
-
-/* Deportes */
-
-.sports{
-
-    left:8%;
-    top:15%;
-
-    border-color:#00eaff;
-
-    box-shadow:
-    0 0 10px #00eaff,
-    0 0 25px #00eaff,
-    0 0 45px #00eaff;
-
-}
-
-/* Artes */
-
-.art{
-
-    right:8%;
-    top:15%;
-
-    border-color:#ff00ff;
-
-    box-shadow:
-    0 0 10px #ff00ff,
-    0 0 25px #ff00ff,
-    0 0 45px #ff00ff;
-
-}
-
-/* Cine */
-
-.cinema{
-
-    left:7%;
-    top:40%;
-
-    border-color:#ff0134;
-
-    box-shadow:
-    0 0 10px #f90202,
-    0 0 25px #ff0202,
-    0 0 45px #f70303;
-
-}
-
-/* Tejido */
-
-.fabric{
-
-    right:7%;
-    top:41%;
-
-    border-color:#ff6b00;
-
-    box-shadow:
-    0 0 10px #ff6b00,
-    0 0 25px #ff6b00,
-    0 0 45px #ff6b00;
-
-}
-
-/* Idiomas */
-
-.languages{
-
-    left:7%;
-    top:66%;
-
-    border-color:#00ff88;
-
-    box-shadow:
-    0 0 10px #00ff88,
-    0 0 25px #00ff88,
-    0 0 45px #00ff88;
-
-}
-
-/* Robotica */
-
-.robotics{
-
-    right:7%;
-    top:66%;
-
-    border-color:#9b00ff;
-
-    box-shadow:
-    0 0 10px #9b00ff,
-    0 0 25px #9b00ff,
-    0 0 45px #9b00ff;
-
-}
-
-/*====================================================
-HOVER
-====================================================*/
-
-.talentCard:hover{
-
-    transform:scale(1.08);
-
-}
-
-.sports:hover{
-    box-shadow:0 0 20px #00eaff,0 0 60px #00eaff;
-}
-
-.art:hover{
-    box-shadow:0 0 20px #ff00ff,0 0 60px #ff00ff;
-}
-
-.cinema:hover{
-    box-shadow:0 0 20px #c6bfd9,0 0 60px #c6bfd9;
-}
-
-.fabric:hover{
-    box-shadow:0 0 20px #ff6b00,0 0 60px #ff6b00;
-}
-
-.languages:hover{
-    box-shadow:0 0 20px #00ff88,0 0 60px #00ff88;
-}
-
-.robotics:hover{
-    box-shadow:0 0 20px #9b00ff,0 0 60px #9b00ff;
-}
-
-/*====================================================
-RESPONSIVE
-====================================================*/
-
-@media(max-width:768px){
-
-    .talentCard{
-
-        width:145px;
-        height:145px;
-
-    }
-
-}
-/*====================================================
-SCENE 5 - CLUB DEPORTIVO
-====================================================*/
-
-#scene5{
-
-    position:fixed;
-    inset:0;
-
-    width:100%;
-    height:100vh;
-
-    overflow:hidden;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    z-index:300;
-
-}
-
-/*====================================================
-FONDO
-====================================================*/
-
-.scene5Background{
-
-    position:absolute;
-    inset:0;
-
-    background-image:url("../assets/images/deportes/fondo.webp");
-    background-size:cover;
-    background-position:center;
-    background-repeat:no-repeat;
-
-}
-
-/* Oscurece ligeramente el fondo */
-
-#scene5::before{
-
-    content:"";
-
-    position:absolute;
-    inset:0;
-
-    background:rgba(0,0,0,.45);
-
-    z-index:1;
-
-}
-
-/*====================================================
-CONTENEDOR
-====================================================*/
-
-.sportsInvitation{
-
-    position:relative;
-
-    z-index:5;
-
-    width:100%;
-    max-width:850px;
-
-    padding:45px;
-
-    border-radius:30px;
-
-    text-align:center;
-
-    background:rgba(255, 255, 255, 0);
-
-    border:2px solid rgba(255, 255, 255, 0);
-
-    box-shadow:
-    0 0 40px rgba(0, 175, 239, 0);
-
-    animation:scene5Enter 1s ease;
-
-}
-
-/*====================================================
-TITULO
-====================================================*/
-
-.sportsInvitation h1{
-
-    font-family:'Bebas Neue';
-
-    font-size:60px;
-
-    letter-spacing:6px;
-
-    color:white;
-
-    text-shadow:
-    0 0 20px cyan;
-
-}
-
-/*====================================================
-LINEA
-====================================================*/
-
-.scene5Line{
-
-    width:220px;
-    height:0px;
-
-    margin:0px auto 35px;
-
-    background:#00AEEF;
-
-    box-shadow:
-    0 0 15px cyan;
-
-}
-
-/*====================================================
-IMAGEN
-====================================================*/
-
-.scene5Image{
-
-   width:300px;
-   height:auto;
-
-    margin-bottom:0px;
-
-    filter:drop-shadow(0 0 30px rgba(255,255,255,.5));
-
-    animation:floatImage 4s ease-in-out infinite;
-
-}
-
-/*====================================================
-DESCRIPCION
-====================================================*/
-
-.scene5Description{
-
-    max-width:650px;
-
-    margin:auto;
-
-    font-size:22px;
-
-    line-height:1.7;
-
-    color:#f1f1f1;
-
-}
-
-/*====================================================
-BOTONES
-====================================================*/
-
-.scene5Buttons{
-
-    margin-top:0px;
-
-    display:flex;
-
-    justify-content:center;
-
-    gap:25px;
-
-    flex-wrap:wrap;
-
-}
-
-.scene5Buttons button{
-
-    width:240px;
-
-    height:65px;
-
-    border:none;
-
-    border-radius:50px;
-
-    cursor:pointer;
-
-    font-size:20px;
-
-    font-weight:800;
-
-    color:white;
-
-    transition:.35s;
-
-}
-
-/* INGRESAR */
-
-#enterSportsButton{
-
-    background:linear-gradient(90deg,#0099ff,#00eaff);
-
-    box-shadow:
-    0 0 25px cyan;
-
-}
-
-/* REGRESAR */
-
-#backSportsButton{
-
-    background:linear-gradient(90deg,#056df5,#7f01f5);
-
-}
-
-/* Hover */
-
-.scene5Buttons button:hover{
-
-    transform:translateY(-6px) scale(1.05);
-
-}
-
-/*====================================================
-ANIMACIONES
-====================================================*/
-
-@keyframes scene5Enter{
-
-    from{
-
-        opacity:0;
-        transform:scale(.85);
-
-    }
-
-    to{
-
-        opacity:1;
-        transform:scale(1);
-
-    }
-
-}
-
-@keyframes floatImage{
-
-    50%{
-
-        transform:translateY(-10px);
-
-    }
+    animation:goImpact .9s ease;
 
 }
 
@@ -1656,277 +806,33 @@ ANIMACIONES
 RESPONSIVE
 ====================================================*/
 
-@media(max-width:768px){
+@media (max-width:768px){
 
-    .sportsInvitation{
+    #counterNumber{
 
-        width:92%;
-
-        padding:30px 20px;
+        font-size:clamp(6rem,28vw,9rem);
 
     }
 
-    .scene5Logo{
+    #goText{
 
-        width:80px;
-
-    }
-
-    .sportsInvitation h1{
-
-        font-size:42px;
-
-    }
-
-
-    .scene5Description{
-
-        font-size:18px;
-
-    }
-
-    .scene5Buttons button{
-
-        width:210px;
-
-        height:58px;
-
-        font-size:18px;
-
-    }
-
-}
-/*====================================================
-SCENE 6 - CLUB DE ARTES
-====================================================*/
-
-#scene6{
-
-    position:fixed;
-    inset:0;
-
-    width:100%;
-    height:100vh;
-
-    overflow:hidden;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    z-index:310;
-
-}
-
-/*====================================================
-FONDO
-====================================================*/
-
-.scene6Background{
-
-    position:absolute;
-    inset:0;
-
-    background-image:url("../assets/images/artes/fondo.webp");
-    background-size:cover;
-    background-position:center;
-    background-repeat:no-repeat;
-
-}
-
-#scene6::before{
-
-    content:"";
-
-    position:absolute;
-    inset:0;
-
-    background:rgba(0,0,0,.45);
-
-    z-index:1;
-
-}
-
-/*====================================================
-CONTENEDOR
-====================================================*/
-
-.artInvitation{
-
-    position:relative;
-
-    z-index:5;
-
-    width:100%;
-    max-width:850px;
-
-    padding:45px;
-
-    border-radius:30px;
-
-    text-align:center;
-
-    background:rgba(255,255,255,0);
-
-    border:2px solid rgba(255,255,255,0);
-
-    box-shadow:none;
-
-    animation:scene6Enter 1s ease;
-
-}
-
-/*====================================================
-LINEA
-====================================================*/
-
-.scene6Line{
-
-    width:220px;
-    height:4px;
-
-    margin:0 auto 35px;
-
-    background:#ff00cc;
-
-    box-shadow:
-    0 0 20px #ff00cc;
-
-}
-
-/*====================================================
-IMAGEN
-====================================================*/
-
-.scene6Image{
-
-    width:300px;
-    height:auto;
-
-    display:block;
-
-    margin-left:auto;
-    margin-right:auto;
-    margin-bottom:40px;
-
-    filter:drop-shadow(0 0 35px rgba(255,255,255,.45));
-
-    animation:floatArt 4s ease-in-out infinite;
-
-}
-
-/*====================================================
-BOTONES
-====================================================*/
-
-.scene6Buttons{
-
-    margin-top:20px;
-
-    display:flex;
-
-    justify-content:center;
-
-    gap:25px;
-
-}
-
-.scene6Buttons button{
-
-    width:260px;
-
-    height:65px;
-
-    border:none;
-
-    border-radius:50px;
-
-    cursor:pointer;
-
-    font-size:22px;
-
-    font-weight:800;
-
-    color:white;
-
-    transition:.35s;
-
-}
-
-#backArtButton{
-
-    background:linear-gradient(90deg,#2d7dff,#8d00ff);
-
-    box-shadow:
-    0 0 25px #8d00ff;
-
-}
-
-.scene6Buttons button:hover{
-
-    transform:translateY(-6px) scale(1.05);
-
-}
-
-/*====================================================
-ANIMACIONES
-====================================================*/
-
-@keyframes scene6Enter{
-
-    from{
-
-        opacity:0;
-        transform:scale(.85);
-
-    }
-
-    to{
-
-        opacity:1;
-        transform:scale(1);
+        font-size:clamp(6rem,30vw,10rem);
 
     }
 
 }
 
-@keyframes floatArt{
+@media (max-width:480px){
 
-    50%{
+    #counterNumber{
 
-        transform:translateY(-10px);
-
-    }
-
-}
-
-/*====================================================
-RESPONSIVE
-====================================================*/
-
-@media(max-width:768px){
-
-    .artInvitation{
-
-        width:92%;
-
-        padding:25px;
+        font-size:clamp(5rem,30vw,8rem);
 
     }
 
-    .scene6Image{
+    #goText{
 
-        width:300px;
-
-    }
-
-    .scene6Buttons button{
-
-        width:240px;
-
-        height:60px;
-
-        font-size:20px;
+        font-size:clamp(5rem,32vw,8rem);
 
     }
 
@@ -1938,18 +844,20 @@ SCENE 7 - CLUB DE CINE
 #scene7{
 
     position:fixed;
+
     inset:0;
 
-    width:100%;
-    height:100vh;
+    z-index:320;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
 
     overflow:hidden;
 
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    z-index:320;
+    padding:30px;
 
 }
 
@@ -1960,12 +868,12 @@ FONDO
 .scene7Background{
 
     position:absolute;
+
     inset:0;
 
-    background-image:url("../assets/images/cine/fondo.webp");
-    background-size:cover;
-    background-position:center;
-    background-repeat:no-repeat;
+    background:url("../assets/images/cine/fondo.webp") center center/cover no-repeat;
+
+    z-index:1;
 
 }
 
@@ -1974,11 +882,12 @@ FONDO
     content:"";
 
     position:absolute;
+
     inset:0;
 
     background:rgba(0,0,0,.45);
 
-    z-index:1;
+    z-index:2;
 
 }
 
@@ -1993,35 +902,44 @@ CONTENEDOR
     z-index:5;
 
     width:100%;
-    max-width:850px;
 
-    padding:45px;
+    max-width:900px;
 
-    border-radius:30px;
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
 
     text-align:center;
 
-    background:transparent;
+    padding:35px;
 
-    animation:scene7Enter 1s ease;
+    animation:scene7Enter .8s ease;
 
 }
 
 /*====================================================
-LINEA
+LÍNEA
 ====================================================*/
 
 .scene7Line{
 
-    width:220px;
+    width:min(220px,65vw);
+
     height:4px;
 
-    margin:0 auto 35px;
+    margin-bottom:35px;
 
-    background:#ffd700;
+    border-radius:30px;
+
+    background:#FFD700;
 
     box-shadow:
-    0 0 20px #ffd700;
+        0 0 18px #FFD700,
+        0 0 35px rgba(255,215,0,.45);
 
 }
 
@@ -2031,93 +949,134 @@ IMAGEN
 
 .scene7Image{
 
-    width:300px;
+    width:min(420px,85vw);
+
     height:auto;
 
     display:block;
 
-    margin:auto;
-    margin-bottom:40px;
+    margin:0 auto;
 
-    filter:drop-shadow(0 0 35px rgba(255,255,255,.5));
+    filter:drop-shadow(0 0 35px rgba(255,255,255,.45));
 
     animation:floatCinema 4s ease-in-out infinite;
 
 }
 
 /*====================================================
-BOTONES
+BOTÓN
 ====================================================*/
 
 .scene7Buttons{
 
-    margin-top:20px;
+    margin-top:35px;
 
     display:flex;
 
     justify-content:center;
 
+    align-items:center;
+
+    flex-wrap:wrap;
+
 }
 
 .scene7Buttons button{
 
-    width:260px;
-    height:65px;
+    width:min(260px,85vw);
+
+    height:62px;
 
     border:none;
 
-    border-radius:50px;
+    border-radius:40px;
 
     cursor:pointer;
 
-    font-size:22px;
+    color:#FFF;
+
+    font-size:1.2rem;
 
     font-weight:800;
 
-    color:white;
-
-    background:linear-gradient(90deg,#d9a400,#ffd700);
+    background:linear-gradient(90deg,#D9A400,#FFD700);
 
     box-shadow:
-    0 0 25px #ffd700;
+        0 0 25px rgba(255,215,0,.45);
 
-    transition:.35s;
+    transition:
+        transform .25s,
+        box-shadow .25s;
 
 }
 
 .scene7Buttons button:hover{
 
-    transform:translateY(-6px) scale(1.05);
+    transform:translateY(-4px) scale(1.03);
+
+}
+
+.scene7Buttons button:active{
+
+    transform:scale(.98);
 
 }
 
 /*====================================================
-ANIMACIONES
+RESPONSIVE
 ====================================================*/
 
-@keyframes scene7Enter{
+@media (max-width:768px){
 
-    from{
+    #scene7{
 
-        opacity:0;
-        transform:scale(.85);
+        padding:20px;
 
     }
 
-    to{
+    .cinemaInvitation{
 
-        opacity:1;
-        transform:scale(1);
+        padding:20px;
+
+    }
+
+    .scene7Line{
+
+        margin-bottom:25px;
+
+    }
+
+    .scene7Image{
+
+        width:min(340px,90vw);
+
+    }
+
+    .scene7Buttons{
+
+        margin-top:25px;
+
+    }
+
+    .scene7Buttons button{
+
+        width:100%;
+
+        max-width:280px;
+
+        height:56px;
+
+        font-size:1rem;
 
     }
 
 }
 
-@keyframes floatCinema{
+@media (max-width:430px){
 
-    50%{
+    .scene7Image{
 
-        transform:translateY(-10px);
+        width:92vw;
 
     }
 
@@ -2129,18 +1088,20 @@ SCENE 8 - CLUB DE TEJIDO
 #scene8{
 
     position:fixed;
+
     inset:0;
 
-    width:100%;
-    height:100vh;
+    z-index:330;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
 
     overflow:hidden;
 
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    z-index:330;
+    padding:30px;
 
 }
 
@@ -2151,12 +1112,12 @@ FONDO
 .scene8Background{
 
     position:absolute;
+
     inset:0;
 
-    background-image:url("../assets/images/tejido/fondo.webp");
-    background-size:cover;
-    background-position:center;
-    background-repeat:no-repeat;
+    background:url("../assets/images/tejido/fondo.webp") center center/cover no-repeat;
+
+    z-index:1;
 
 }
 
@@ -2165,11 +1126,12 @@ FONDO
     content:"";
 
     position:absolute;
+
     inset:0;
 
     background:rgba(0,0,0,.45);
 
-    z-index:1;
+    z-index:2;
 
 }
 
@@ -2184,17 +1146,22 @@ CONTENEDOR
     z-index:5;
 
     width:100%;
-    max-width:850px;
 
-    padding:45px;
+    max-width:900px;
 
-    border-radius:30px;
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
 
     text-align:center;
 
-    background:transparent;
+    padding:35px;
 
-    animation:scene8Enter 1s ease;
+    animation:scene8Enter .8s ease;
 
 }
 
@@ -2204,15 +1171,19 @@ LÍNEA
 
 .scene8Line{
 
-    width:220px;
+    width:min(220px,65vw);
+
     height:4px;
 
-    margin:0 auto 35px;
+    margin-bottom:35px;
 
-    background:#ff7a00;
+    border-radius:30px;
+
+    background:#FF7A00;
 
     box-shadow:
-    0 0 20px #ff7a00;
+        0 0 18px #FF7A00,
+        0 0 35px rgba(255,122,0,.45);
 
 }
 
@@ -2222,505 +1193,134 @@ IMAGEN
 
 .scene8Image{
 
-    width:300px;
+    width:min(420px,85vw);
+
     height:auto;
 
     display:block;
 
-    margin:auto;
-    margin-bottom:40px;
+    margin:0 auto;
 
-    filter:drop-shadow(0 0 35px rgba(255,255,255,.5));
+    filter:drop-shadow(0 0 35px rgba(255,255,255,.45));
 
     animation:floatFabric 4s ease-in-out infinite;
 
 }
 
 /*====================================================
-BOTONES
+BOTÓN
 ====================================================*/
 
 .scene8Buttons{
 
-    margin-top:20px;
+    margin-top:35px;
 
     display:flex;
 
     justify-content:center;
+
+    align-items:center;
+
+    flex-wrap:wrap;
 
 }
 
 .scene8Buttons button{
 
-    width:260px;
-    height:65px;
+    width:min(260px,85vw);
+
+    height:62px;
 
     border:none;
 
-    border-radius:50px;
+    border-radius:40px;
 
     cursor:pointer;
 
-    font-size:22px;
+    color:#FFF;
+
+    font-size:1.2rem;
 
     font-weight:800;
 
-    color:white;
-
-    background:linear-gradient(90deg,#ff6b00,#ff9900);
+    background:linear-gradient(90deg,#FF6B00,#FF9900);
 
     box-shadow:
-    0 0 25px #ff7a00;
+        0 0 25px rgba(255,122,0,.45);
 
-    transition:.35s;
+    transition:
+        transform .25s,
+        box-shadow .25s;
 
 }
 
 .scene8Buttons button:hover{
 
-    transform:translateY(-6px) scale(1.05);
+    transform:translateY(-4px) scale(1.03);
+
+}
+
+.scene8Buttons button:active{
+
+    transform:scale(.98);
 
 }
 
 /*====================================================
-ANIMACIONES
-====================================================*/
-
-@keyframes scene8Enter{
-
-    from{
-
-        opacity:0;
-        transform:scale(.85);
-
-    }
-
-    to{
-
-        opacity:1;
-        transform:scale(1);
-
-    }
-
-}
-
-@keyframes floatFabric{
-
-    50%{
-
-        transform:translateY(-10px);
-
-    }
-
-}
-/*====================================================
-SCENE 9 - CLUB DE IDIOMAS
-====================================================*/
-
-#scene9{
-
-    position:fixed;
-
-    inset:0;
-
-    width:100%;
-
-    height:100vh;
-
-    overflow:hidden;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    z-index:340;
-
-}
-
-/*====================================================
-FONDO
-====================================================*/
-
-.scene9Background{
-
-    position:absolute;
-
-    inset:0;
-
-    background-image:url("../assets/images/idiomas/fondo.webp");
-
-    background-size:cover;
-
-    background-position:center;
-
-    background-repeat:no-repeat;
-
-}
-
-#scene9::before{
-
-    content:"";
-
-    position:absolute;
-
-    inset:0;
-
-    background:rgba(0,0,0,.45);
-
-    z-index:1;
-
-}
-
-/*====================================================
-CONTENEDOR
-====================================================*/
-
-.languagesInvitation{
-
-    position:relative;
-
-    z-index:5;
-
-    width:100%;
-
-    max-width:850px;
-
-    padding:45px;
-
-    text-align:center;
-
-    background:transparent;
-
-    animation:scene9Enter 1s ease;
-
-}
-
-/*====================================================
-LÍNEA
-====================================================*/
-
-.scene9Line{
-
-    width:220px;
-
-    height:4px;
-
-    margin:0 auto 35px;
-
-    background:#00ff88;
-
-    box-shadow:0 0 20px #00ff88;
-
-}
-
-/*====================================================
-IMAGEN
-====================================================*/
-
-.scene9Image{
-
-    width:300px;
-
-    height:auto;
-
-    display:block;
-
-    margin:auto;
-
-    margin-bottom:40px;
-
-    filter:drop-shadow(0 0 35px rgba(255,255,255,.5));
-
-    animation:floatLanguages 4s ease-in-out infinite;
-
-}
-
-/*====================================================
-BOTÓN
-====================================================*/
-
-.scene9Buttons{
-
-    display:flex;
-
-    justify-content:center;
-
-    margin-top:20px;
-
-}
-
-.scene9Buttons button{
-
-    width:260px;
-
-    height:65px;
-
-    border:none;
-
-    border-radius:50px;
-
-    cursor:pointer;
-
-    color:white;
-
-    font-size:22px;
-
-    font-weight:800;
-
-    background:linear-gradient(90deg,#00b96b,#00ff88);
-
-    box-shadow:0 0 25px #00ff88;
-
-    transition:.35s;
-
-}
-
-.scene9Buttons button:hover{
-
-    transform:translateY(-6px) scale(1.05);
-
-}
-
-/*====================================================
-ANIMACIONES
-====================================================*/
-
-@keyframes scene9Enter{
-
-    from{
-
-        opacity:0;
-
-        transform:scale(.85);
-
-    }
-
-    to{
-
-        opacity:1;
-
-        transform:scale(1);
-
-    }
-
-}
-
-@keyframes floatLanguages{
-
-    50%{
-
-        transform:translateY(-10px);
-
-    }
-
-}
-/*====================================================
-SCENE 10 - ROBÓTICA
-====================================================*/
-
-#scene10{
-
-    position:fixed;
-
-    inset:0;
-
-    z-index:300;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    overflow:hidden;
-
-}
-
-/*=========================================
-FONDO
-=========================================*/
-
-.scene10Background{
-
-    position:absolute;
-
-    inset:0;
-
-    background-image:url("../assets/images/fondo_robotica.webp");
-
-    background-size:cover;
-
-    background-position:center;
-
-    background-repeat:no-repeat;
-
-    z-index:1;
-
-}
-
-/*=========================================
-CONTENEDOR
-=========================================*/
-
-.roboticsInvitation{
-
-    position:relative;
-
-    z-index:5;
-
-    width:100%;
-
-    max-width:850px;
-
-    padding:45px;
-
-    text-align:center;
-
-    background:transparent;
-
-    animation:scene10Enter .8s ease;
-
-}
-
-/*=========================================
-IMAGEN
-=========================================*/
-
-.scene10Image{
-
-    display:block;
-
-    width:450px;
-
-    height:auto;
-
-    margin:0 auto 40px;
-
-    filter:drop-shadow(0 0 30px rgba(255,255,255,.5));
-
-    animation:floatRobot 4s ease-in-out infinite;
-
-}
-
-/*=========================================
-BOTÓN
-=========================================*/
-
-.scene10Buttons{
-
-    margin-top:-15px;
-
-}
-
-#backRoboticsButton{
-
-    width:260px;
-
-    height:65px;
-
-    border:none;
-
-    border-radius:50px;
-
-    cursor:pointer;
-
-    font-size:22px;
-
-    font-weight:800;
-
-    color:white;
-
-    background:linear-gradient(90deg,#7b2cff,#00d4ff);
-
-    box-shadow:0 0 25px rgba(123,44,255,.8);
-
-    transition:.3s;
-
-}
-
-#backRoboticsButton:hover{
-
-    transform:scale(1.05);
-
-    box-shadow:
-    0 0 20px #7b2cff,
-    0 0 45px #00d4ff;
-
-}
-
-/*=========================================
-ANIMACIONES
-=========================================*/
-
-@keyframes scene10Enter{
-
-    from{
-
-        opacity:0;
-
-        transform:scale(.85);
-
-    }
-
-    to{
-
-        opacity:1;
-
-        transform:scale(1);
-
-    }
-
-}
-
-@keyframes floatRobot{
-
-    0%{
-
-        transform:translateY(0px);
-
-    }
-
-    50%{
-
-        transform:translateY(-15px);
-
-    }
-
-    100%{
-
-        transform:translateY(0px);
-
-    }
-
-}
-
-/*=========================================
 RESPONSIVE
-=========================================*/
+====================================================*/
 
-@media(max-width:768px){
+@media (max-width:768px){
 
-    .roboticsInvitation{
+    #scene8{
 
         padding:20px;
 
     }
 
-    .scene10Image{
+    .fabricInvitation{
 
-        width:300px;
+        padding:20px;
 
     }
 
-    #backRoboticsButton{
+    .scene8Line{
 
-        width:220px;
+        margin-bottom:25px;
 
-        height:55px;
+    }
 
-        font-size:18px;
+    .scene8Image{
+
+        width:min(340px,90vw);
+
+    }
+
+    .scene8Buttons{
+
+        margin-top:25px;
+
+    }
+
+    .scene8Buttons button{
+
+        width:100%;
+
+        max-width:280px;
+
+        height:56px;
+
+        font-size:1rem;
+
+    }
+
+}
+
+@media (max-width:430px){
+
+    .scene8Image{
+
+        width:92vw;
 
     }
 
