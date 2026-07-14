@@ -1192,12 +1192,21 @@ ESCENA 4
 }
 
 .scene4Background{
+
     position:absolute;
     inset:0;
-    background:url("../assets/images/fondo_talentos.webp") center/contain no-repeat;
-    z-index:1;
-}
 
+    background-image:url("../assets/images/fondo_talentos.webp");
+
+    background-repeat:no-repeat;
+
+    background-size:80%;
+
+    background-position:center center;
+
+    z-index:1;
+
+}
 /* Fondo mucho más claro */
 
 #scene4::before{
