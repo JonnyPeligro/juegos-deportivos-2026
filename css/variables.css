@@ -1,0 +1,49 @@
+/*=========================================
+    VARIABLES DEL PROYECTO
+==========================================*/
+
+:root{
+
+    /* Colores principales */
+
+    --black:#050505;
+
+    --darkBlue:#081B33;
+
+    --blue:#00AEEF;
+
+    --green:#28D764;
+
+    --white:#FFFFFF;
+
+    --gold:#FFD54A;
+
+    --gray:#BFC6CE;
+
+    /* Transparencias */
+
+    --overlay:rgba(0,0,0,.45);
+
+    --overlayStrong:rgba(0,0,0,.75);
+
+    /* Luces */
+
+    --lightBlue:rgba(0,174,239,.45);
+
+    --lightWhite:rgba(255,255,255,.35);
+
+    /* Sombras */
+
+    --shadow:0px 0px 25px rgba(0,0,0,.5);
+
+    --glow:0px 0px 35px rgba(0,174,239,.9);
+
+    /* Bordes */
+
+    --radius:16px;
+
+    /* Animaciones */
+
+    --speed:0.4s;
+
+}

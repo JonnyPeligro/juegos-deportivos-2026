@@ -1,0 +1,319 @@
+/*=========================================
+ANIMACIÓN DEL VIDEO
+==========================================*/
+
+#stadiumVideo{
+
+    animation:cameraMove 18s ease-in-out infinite alternate;
+
+}
+
+@keyframes cameraMove{
+
+    0%{
+
+        transform:
+
+        scale(1)
+
+        translateX(0)
+
+        rotate(.2deg);
+
+    }
+
+    100%{
+
+        transform:
+
+        scale(1.08)
+
+        translateX(-35px)
+
+        rotate(-.2deg);
+
+    }
+
+}
+
+/*=========================================
+ENTRADA DEL ESCUDO
+==========================================*/
+
+#logo{
+
+    opacity:0;
+
+    animation:
+
+    logoAppear 1.5s ease forwards;
+
+}
+
+@keyframes logoAppear{
+
+    from{
+
+        opacity:0;
+
+        transform:
+        translateY(-50px)
+        scale(.8);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+        translateY(0px)
+        scale(1);
+
+    }
+
+}
+
+/*=========================================
+ENTRADA DEL TÍTULO
+==========================================*/
+
+.title span{
+
+    opacity:0;
+
+}
+
+/* LA */
+
+.title span:nth-child(1){
+
+    animation:title1 .8s forwards;
+
+    animation-delay:1s;
+
+}
+
+/* COMPETENCIA */
+
+.title span:nth-child(2){
+
+    animation:title2 .8s forwards;
+
+    animation-delay:1.8s;
+
+}
+
+/* ESTÁ POR */
+
+.title span:nth-child(3){
+
+    animation:title3 .8s forwards;
+
+    animation-delay:2.6s;
+
+}
+
+/* COMENZAR */
+
+.title span:nth-child(4){
+
+    animation:title4 .9s forwards;
+
+    animation-delay:3.4s;
+
+}
+
+@keyframes title1{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(-60px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+@keyframes title2{
+
+    from{
+
+        opacity:0;
+
+        transform:scale(.4);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:scale(1);
+
+    }
+
+}
+
+@keyframes title3{
+
+    from{
+
+        opacity:0;
+
+        transform:translateX(-120px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateX(0);
+
+    }
+
+}
+
+@keyframes title4{
+
+    from{
+
+        opacity:0;
+
+        transform:scale(2);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:scale(1);
+
+    }
+
+}
+
+/*=========================================
+BOTÓN
+==========================================*/
+
+#startButton{
+
+    opacity:0;
+
+    animation:
+
+    buttonAppear 1s forwards;
+
+    animation-delay:4.2s;
+
+}
+
+@keyframes buttonAppear{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(50px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+#logo{
+
+    animation:
+
+    logoAppear 1.5s ease forwards,
+
+    logoGlow 4s ease-in-out infinite;
+
+}
+
+@keyframes logoGlow{
+
+    0%,100%{
+
+        filter:
+
+        drop-shadow(0 0 15px rgba(255,255,255,.3));
+
+    }
+
+    50%{
+
+        filter:
+
+        drop-shadow(0 0 35px rgba(0,174,239,.9));
+
+    }
+
+}
+
+.title{
+
+    animation:titleGlow 3s ease-in-out infinite;
+
+}
+
+@keyframes titleGlow{
+
+    0%,100%{
+
+        filter:drop-shadow(0 0 10px #00AEEF);
+
+    }
+
+    50%{
+
+        filter:drop-shadow(0 0 30px white);
+
+    }
+
+}
+.beam{
+
+    animation:
+
+    beamGlow 2.5s ease-in-out infinite;
+
+}
+
+@keyframes beamGlow{
+
+    0%,100%{
+
+        opacity:.15;
+
+        filter:blur(35px);
+
+    }
+
+    50%{
+
+        opacity:.35;
+
+        filter:blur(60px);
+
+    }
+
+}

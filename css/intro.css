@@ -1,0 +1,219 @@
+/*=========================================
+REFLECTORES
+==========================================*/
+
+#lights{
+
+    position:fixed;
+
+    inset:0;
+
+    overflow:hidden;
+
+    pointer-events:none;
+
+    z-index:2;
+
+}
+
+.light{
+
+    position:absolute;
+
+    width:420px;
+
+    height:160vh;
+
+    background:linear-gradient(
+
+        rgba(255,255,255,.30),
+
+        rgba(255,255,255,.02),
+
+        transparent
+
+    );
+
+    filter:blur(30px);
+
+    opacity:.25;
+
+}
+
+.beam1{
+
+    top:-30%;
+
+    left:12%;
+
+    transform:rotate(-35deg);
+
+    animation:beamMove1 12s ease-in-out infinite alternate;
+
+}
+
+.beam2{
+
+    top:-30%;
+
+    right:12%;
+
+    transform:rotate(35deg);
+
+    animation:beamMove2 10s ease-in-out infinite alternate;
+
+}
+
+@keyframes beamMove1{
+
+    from{
+
+        transform:
+        rotate(-35deg)
+        translateX(-40px);
+
+    }
+
+    to{
+
+        transform:
+        rotate(-20deg)
+        translateX(80px);
+
+    }
+
+}
+
+@keyframes beamMove2{
+
+    from{
+
+        transform:
+        rotate(35deg)
+        translateX(40px);
+
+    }
+
+    to{
+
+        transform:
+        rotate(18deg)
+        translateX(-80px);
+
+    }
+
+}
+
+/*=========================================
+BALONES
+==========================================*/
+
+#balls{
+
+    position:fixed;
+
+    inset:0;
+
+    pointer-events:none;
+
+    z-index:4;
+
+}
+
+.ball{
+
+    position:absolute;
+
+    width:90px;
+
+    opacity:.75;
+
+    filter:drop-shadow(0 0 20px rgba(255,255,255,.35));
+
+}
+
+.football{
+
+    left:8%;
+
+    bottom:10%;
+
+    animation:footballFloat 8s ease-in-out infinite;
+
+}
+
+.basket{
+
+    right:12%;
+
+    top:18%;
+
+    animation:basketFloat 9s linear infinite;
+
+}
+
+.voley{
+
+    right:20%;
+
+    bottom:8%;
+
+    animation:voleyFloat 7s ease-in-out infinite;
+
+}
+
+@keyframes footballFloat{
+
+    0%,100%{
+
+        transform:
+        translateY(0)
+        rotate(0);
+
+    }
+
+    50%{
+
+        transform:
+        translateY(-30px)
+        rotate(10deg);
+
+    }
+
+}
+
+@keyframes basketFloat{
+
+    from{
+
+        transform:
+        rotate(0deg);
+
+    }
+
+    to{
+
+        transform:
+        rotate(360deg);
+
+    }
+
+}
+
+@keyframes voleyFloat{
+
+    0%,100%{
+
+        transform:
+        translateY(0);
+
+    }
+
+    50%{
+
+        transform:
+        translateY(-40px);
+
+    }
+
+}

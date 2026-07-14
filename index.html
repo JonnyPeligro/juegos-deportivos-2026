@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>🏆 Juegos Deportivos 2026</title>
+
+    <meta name="theme-color" content="#0B1220">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+
+<body>
+
+
+<div id="background">
+
+    <video id="stadiumVideo" autoplay muted loop playsinline>
+
+        <source src="assets/video/estadio.mp4" type="video/mp4">
+
+    </video>
+
+</div>
+
+
+
+<div id="overlay"></div>
+
+<div id="vignette"></div>
+
+<div id="fog"></div>
+
+
+
+<div id="lights">
+
+    <div class="beam beamLeft"></div>
+
+    <div class="beam beamRight"></div>
+
+</div>
+
+
+
+<div id="particles"></div>
+
+
+
+<div id="balls">
+
+    <img
+    src="assets/icons/futbol.png"
+    class="ball football"
+    alt="Fútbol">
+
+
+    <img
+    src="assets/icons/basket.png"
+    class="ball basketball"
+    alt="Baloncesto">
+
+
+    <img
+    src="assets/icons/voley.png"
+    class="ball volleyball"
+    alt="Voleibol">
+
+</div>
+
+
+
+<section id="scene1">
+
+
+    <div class="content">
+
+
+        <img
+        src="assets/images/escudo.png"
+        id="logo"
+        alt="Escudo Colegio">
+
+
+
+        <div class="title">
+
+            <span>EL</span>
+
+            <span>TALENTO</span>
+
+            <span>ESTÁ POR</span>
+
+            <span>DESPERTAR</span>
+
+        </div>
+
+
+
+        <p class="subtitle">
+
+            Clubes Colegio Debora Arango 2026
+
+        </p>
+
+
+
+        <button id="startButton">
+
+            <span class="icon">▶</span>
+
+            <span>INICIAR</span>
+
+        </button>
+
+
+    </div>
+
+
+</section>
+
+<section id="scene2" class="hidden">
+
+
+    <div id="countdown">
+
+
+        <span id="counterNumber">
+            3
+        </span>
+
+
+    </div>
+
+
+</section>
+
+<section id="sceneGO" class="hidden">
+
+
+    <div id="goText">
+
+        GO!
+
+    </div>
+
+
+</section>
+
+
+
+
+
+<section id="scene3" class="hidden">
+
+
+    <div class="invitation">
+
+
+        <img
+        src="assets/images/escudo.png"
+        class="scene3Logo"
+        alt="Escudo Colegio">
+
+
+
+        <h1>
+
+
+
+
+             ¡BIENVENIDOS<br>
+             AL FESTIVAL<br>
+             DE TALENTOS!<br>
+             2026
+
+        </h1>
+
+
+
+        <div class="line"></div>
+
+
+
+        <p>
+
+           UN LUGAR DONDE
+           LA CREATIVIDAD
+           NO TIENE LÍMITES
+           🏆 Deportes
+            🎨 Artes
+            🎬 Cine
+            🧶 Tejido
+            🌎 Idiomas
+            🤖 Robótica
+
+<br>
+            
+
+        </p>
+
+
+
+        <p class="message">
+
+            Te esperamos para compartir una jornada inolvidable llena de muestras, talento y pasión por aprender.
+
+        </p>
+
+
+
+        <button id="continueButton">
+
+            EXPLORAR TALENTOS
+
+        </button>
+
+
+    </div>
+
+
+</section>
+
+<section id="scene4" class="hidden">
+
+    <div class="scene4Background"></div>
+
+
+    <div class="talentMenu">
+
+
+        <h1>
+        
+        </h1>
+
+
+        <p>
+            
+        </p>
+
+
+        <div class="talentGrid">
+
+
+           <button id="sportsButton" class="talentCard sports">               
+
+            </button>
+
+
+          <button id="artButton" class="talentCard art">
+
+            </button>
+
+               
+
+            </button>
+
+
+            <button id="cinemaButton" class="talentCard cinema"></button>
+
+                
+
+            </button>
+
+
+            <button id="fabricButton" class="talentCard fabric"></button>
+
+            
+
+            </button>
+
+
+            <button id="languagesButton" class="talentCard languages"></button>
+
+
+            </button>
+
+
+            <button id="roboticsButton" class="talentCard robotics"></button>
+
+                
+            </button>
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<div id="flash"></div>
+
+
+
+
+
+<audio id="music" preload="auto">
+
+    <source src="assets/audio/musica.mp3" type="audio/mpeg">
+
+</audio>
+
+
+
+
+<audio id="hoverSound" preload="auto">
+
+    <source src="assets/audio/hover.mp3" type="audio/mpeg">
+
+</audio>
+
+
+
+<audio id="clickSound" preload="auto">
+
+    <source src="assets/audio/click.mp3" type="audio/mpeg">
+
+</audio>
+
+
+
+<audio id="goSound" preload="auto">
+
+    <source src="assets/audio/go.mp3" type="audio/mpeg">
+
+</audio>
+
+
+
+
+
+<script src="js/audio.js"></script>
+
+<script src="js/animations.js"></script>
+
+<script src="js/intro.js"></script>
+
+<script src="js/effects/lights.js"></script>
+
+<script src="js/effects/fog.js"></script>
+
+<script src="js/effects/confetti.js"></script>
+
+<script src="js/effects/fireworks.js"></script>
+
+<script src="js/countdown.js"></script>
+
+<script src="js/app.js"></script>
+
+<script src="js/floatingObjects.js"></script>
+
+
+
+</body>
+
+</html>
+
+<!--====================================================
+SCENE 5 - DEPORTES
+=====================================================-->
+
+<section id="scene5" class="hidden">
+
+    <!-- Fondo -->
+    <div class="assets/images/deportes.webp"></div>
+
+    <!-- Contenido -->
+    <div class="sportsInvitation">
+
+        <!-- Línea decorativa -->
+        <div class="scene5Line"></div>
+
+        <!-- Imagen principal -->
+        <img src="assets/images/deportes.webp" class="scene5Image">
+
+        <!-- Botones -->
+        <div class="scene5Buttons">
+
+            <button id="backSportsButton">
+
+                REGRESAR
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+HTML
+
+<!--==================================================== 
+                   SCENE 6 - ARTES 
+====================================================--> 
+<section id="scene6" class="hidden"> 
+    <div class="scene6Background">
+
+    </div> <div class="artInvitation"> 
+        <div class="scene6Line"></div>
+         <img src="assets/images/artes.webp" class="scene6Image"> 
+         <div class="scene6Buttons"> 
+            
+            <button id="backArtButton"> REGRESAR </button> 
+        </div> 
+    </div> 
+</section>
+
+<!--====================================================
+SCENE 7 - CINE
+=====================================================-->
+
+<section id="scene7" class="hidden">
+
+    <!-- Fondo -->
+    <div class="scene7Background"></div>
+
+    <!-- Contenido -->
+    <div class="cinemaInvitation">
+
+        <!-- Línea decorativa -->
+        <div class="scene7Line"></div>
+
+        <!-- Imagen -->
+        <img src="assets/images/cine.webp" class="scene7Image">
+
+        <!-- Botón -->
+        <div class="scene7Buttons">
+
+            <button id="backCinemaButton">
+
+                REGRESAR
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!--====================================================
+SCENE 8 - TEJIDO
+=====================================================-->
+
+<section id="scene8" class="hidden">
+
+    <!-- Fondo -->
+    <div class="scene8Background"></div>
+
+    <!-- Contenido -->
+    <div class="fabricInvitation">
+
+        <!-- Línea decorativa -->
+        <div class="scene8Line"></div>
+
+        <!-- Imagen -->
+        <img src="assets/images/tejido.webp" class="scene8Image">
+
+        <!-- Botón -->
+        <div class="scene8Buttons">
+
+            <button id="backFabricButton">
+
+                REGRESAR
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+<!--====================================================
+SCENE 9 - IDIOMAS
+=====================================================-->
+
+<section id="scene9" class="hidden">
+
+    <!-- Fondo -->
+    <div class="scene9Background"></div>
+
+    <!-- Contenido -->
+    <div class="languagesInvitation">
+
+        <!-- Línea decorativa -->
+        <div class="scene9Line"></div>
+
+        <!-- Imagen -->
+        <img
+            src="assets/images/idiomas.webp"
+            class="scene9Image">
+
+        <!-- Botón -->
+        <div class="scene9Buttons">
+
+            <button id="backLanguagesButton">
+
+                REGRESAR
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!--====================================================
+SCENE 10 - ROBÓTICA
+=====================================================-->
+
+<section id="scene10" class="hidden">
+
+    <!-- Fondo -->
+    <div class="scene10Background"></div>
+
+    <!-- Contenido -->
+    <div class="roboticsInvitation">
+
+        <!-- Imagen principal -->
+        <img
+            src="assets/images/robotica.webp"
+            class="scene10Image">
+
+        <!-- Botón -->
+        <div class="scene10Buttons">
+
+            <button id="backRoboticsButton">
+
+                REGRESAR
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
