@@ -1183,30 +1183,49 @@ ESCENA 4
 ====================================================*/
 
 #scene4{
+
     position:fixed;
     inset:0;
-    width:100%;
-    height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
     overflow:hidden;
+
     z-index:250;
+
 }
+
 
 .scene4Background{
 
     position:absolute;
-    inset:0;
+
+    width:min(92vw,720px);
+
+    aspect-ratio:720/1280;
+
+    height:auto;
+
+    left:50%;
+
+    top:50%;
+
+    transform:translate(-50%,-50%);
 
     background-image:url("../assets/images/fondo_talentos.webp");
 
     background-repeat:no-repeat;
 
-    background-size:10%;
+    background-size:100% 100%;
 
-    background-position:center center;
+    background-position:center;
 
     z-index:1;
 
 }
+
 /* Fondo mucho más claro */
 
 #scene4::before{
@@ -1217,11 +1236,17 @@ ESCENA 4
     z-index:2;
 }
 
+
 .talentMenu{
+
     position:relative;
-    width:100%;
-    height:100%;
+
+    width:min(92vw,720px);
+    aspect-ratio:720/1280;
+    height:auto;
+
     z-index:5;
+
 }
 
 /* ocultar titulo y subtitulo */
@@ -1236,17 +1261,23 @@ BOTONES
 ====================================================*/
 
 .talentGrid{
+
     position:relative;
+
     width:100%;
     height:100%;
+
 }
 
 .talentCard{
 
     position:absolute;
 
-    width:170px;
-    height:170px;
+    width:38%;
+
+    aspect-ratio:1;
+
+    max-width:none;
 
     background:transparent;
 
@@ -1256,10 +1287,9 @@ BOTONES
 
     cursor:pointer;
 
-    backdrop-filter:none;
-    -webkit-backdrop-filter:none;
-
     transition:.35s;
+
+    z-index:20;
 
 }
 
@@ -1279,11 +1309,9 @@ BOTONES
 
 }
 
-/* Artes */
-
 .art{
 
-    right:8%;
+    left:55%;
     top:20%;
 
     border-color:#ff00ff;
@@ -1295,27 +1323,23 @@ BOTONES
 
 }
 
-/* Cine */
-
 .cinema{
 
-    left:7%;
+    left:8%;
     top:42%;
 
     border-color:#ff0134;
 
     box-shadow:
-    0 0 10px #f90202,
-    0 0 25px #ff0202,
-    0 0 45px #f70303;
+    0 0 10px #ff0134,
+    0 0 25px #ff0134,
+    0 0 45px #ff0134;
 
 }
 
-/* Tejido */
-
 .fabric{
 
-    right:7%;
+    left:55%;
     top:42%;
 
     border-color:#ff6b00;
@@ -1327,12 +1351,10 @@ BOTONES
 
 }
 
-/* Idiomas */
-
 .languages{
 
-    left:6.5%;
-    top:63%;
+    left:8%;
+    top:64%;
 
     border-color:#00ff88;
 
@@ -1343,12 +1365,10 @@ BOTONES
 
 }
 
-/* Robotica */
-
 .robotics{
 
-    right:6.5%;
-    top:63%;
+    left:55%;
+    top:64%;
 
     border-color:#9b00ff;
 
