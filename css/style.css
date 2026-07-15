@@ -1299,8 +1299,8 @@ BOTONES
 
 .sports{
 
-    left:5%;
-    top:12%;
+    left:4%;
+    top:13%;
 
     border-color:#00eaff;
 
@@ -1313,8 +1313,8 @@ BOTONES
 
 .art{
 
-    left:53%;
-    top:12%;
+    left:52.5%;
+    top:13%;
 
     border-color:#ff00ff;
 
@@ -1327,8 +1327,8 @@ BOTONES
 
 .cinema{
 
-    left:5%;
-    top:38%;
+    left:4%;
+    top:39%;
 
     border-color:#ff0134;
 
@@ -1341,8 +1341,8 @@ BOTONES
 
 .fabric{
 
-    left:53%;
-    top:38%;
+    left:52.5%;
+    top:39%;
 
     border-color:#ff6b00;
 
@@ -1355,7 +1355,7 @@ BOTONES
 
 .languages{
 
-    left:5%;
+    left:4%;
     top:65%;
 
     border-color:#00ff88;
