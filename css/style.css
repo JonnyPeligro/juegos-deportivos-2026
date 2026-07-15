@@ -1233,11 +1233,13 @@ ESCENA 4
 
 .talentMenu{
 
-    position:relative;
+    position:absolute;
 
-    width:min(92vw,768px);
+    width:100%;
+    height:100%;
 
-    aspect-ratio:768/1344;
+    left:0;
+    top:0;
 
     z-index:5;
 
@@ -1256,10 +1258,16 @@ BOTONES
 
 .talentGrid{
 
-    position:relative;
+    position:absolute;
 
-    width:100%;
-    height:100%;
+    width:min(92vw,768px);
+
+    aspect-ratio:768/1344;
+
+    left:50%;
+    top:50%;
+
+    transform:translate(-50%,-50%);
 
 }
 
