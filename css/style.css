@@ -2348,25 +2348,19 @@ ANIMACIONES
 SCENE 9 - CLUB DE IDIOMAS
 ====================================================*/
 
-#scene9{
+.scene9Image{
 
-    position:fixed;
+    display:block;
 
-    inset:0;
+    width:450px;
 
-    width:100%;
+    height:auto;
 
-    height:100vh;
+    margin:0 auto 40px;
 
-    overflow:hidden;
+    filter:drop-shadow(0 0 30px rgba(255,255,255,.5));
 
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    z-index:340;
+    animation:floatLanguages 4s ease-in-out infinite;
 
 }
 
@@ -2429,24 +2423,6 @@ CONTENEDOR
 }
 
 /*====================================================
-LÍNEA
-====================================================*/
-
-.scene9Line{
-
-    width:220px;
-
-    height:4px;
-
-    margin:0 auto 35px;
-
-    background:#00ff88;
-
-    box-shadow:0 0 20px #00ff88;
-
-}
-
-/*====================================================
 IMAGEN
 ====================================================*/
 
@@ -2478,7 +2454,7 @@ BOTÓN
 
     justify-content:center;
 
-    margin-top:20px;
+  margin-top:-15px;
 
 }
 
