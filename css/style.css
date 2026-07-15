@@ -1300,7 +1300,7 @@ BOTONES
 .cinema{
 
     left:7%;
-    top:40%;
+    top:42%;
 
     border-color:#ff0134;
 
@@ -1316,7 +1316,7 @@ BOTONES
 .fabric{
 
     right:7%;
-    top:41%;
+    top:42%;
 
     border-color:#ff6b00;
 
@@ -1331,8 +1331,8 @@ BOTONES
 
 .languages{
 
-    left:7%;
-    top:66%;
+    left:6.5%;
+    top:63%;
 
     border-color:#00ff88;
 
@@ -1347,8 +1347,8 @@ BOTONES
 
 .robotics{
 
-    right:7%;
-    top:66%;
+    right:6.5%;
+    top:63%;
 
     border-color:#9b00ff;
 
