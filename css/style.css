@@ -1313,13 +1313,15 @@ BOTONES
 
 .art{
 
-    left:0% !important;
-    top:0% !important;
+    left:50%;
+    top:16%;
 
-    width:50px !important;
-    height:50px !important;
+    border-color:#ff00ff;
 
-    background:red !important;
+    box-shadow:
+    0 0 10px #ff00ff,
+    0 0 25px #ff00ff,
+    0 0 45px #ff00ff;
 
 }
 
